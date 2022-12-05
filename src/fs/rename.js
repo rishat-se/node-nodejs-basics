@@ -1,9 +1,13 @@
 import * as fs from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
+
 
 const rename = async () => {
-    // Write your code here
-    const OLD_FILENAME = 'src/fs/files/wrongFilename.txt';
-    const NEW_FILENAME = 'src/fs/files/properFilename.md';
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const OLD_FILENAME = __dirname + '/files/wrongFilename.txt';
+    const NEW_FILENAME = __dirname + '/files/properFilename.md';
     let isNewFileExists = true;
     //Check if FILE exists
     try {

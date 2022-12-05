@@ -1,8 +1,12 @@
 import * as fs from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
+
 
 const create = async () => {
-    // Write your code here
-    const FILE = 'src/fs/files/fresh.txt';
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const FILE = __dirname + '/files/fresh.txt';
     let isFileExists = true;
     try {
         //Check if FILE exists
